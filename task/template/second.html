@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>front page</title>
+	<style type="text/css">
+	.password{
+		padding-left: 400px;
+		padding-top: 100px;
+	}#buttonc{
+
+			background-color:#3c5a99;
+			color: white;font-weight: bold;
+			border-width: 0.1px;
+			border-color: grey;
+			width: 120px;
+			height: 40px;
+			border-style: ridge;
+			border-width: 2px;
+			border-radius: 5px;	
+		}
+	</style>
+	<script type="text/javascript">
+		function usCheck(){
+			var us=document.getElementById('email').value;
+			var ps=document.getElementById('Password').value;
+			if(us==''){
+				alert("enter your username")
+			}else if(ps==''){
+				alert("enter password")
+			}else{
+				alert("login succesfull")
+			}
+		}
+	</script>
+</head>
+<body bgcolor="#DCDCDC">
+		<div class="password">
+			<form name="frm1" method="POST" action="/task/userLogin/" onsubmit="return usCheck()">
+			{% csrf_token %} 
+
+		<fieldset style="width: 400px;height: 330px; background-color: white; ">
+	<table cellspacing="10">
+		<tr>
+			<td colspan="10" align="center"><h1><font color="#3c5a99">Login TENANT</h1></td>
+		</tr>
+		
+		<tr>
+			<td id="u">username:</td>
+		<td><input type="text" name="txt_username" id="email"></td>
+	</tr>
+<tr>
+	<td id="p">password :</td><td><input type="password" name="txt_password" id="Password"></td>
+</tr>
+<tr>
+	<td></td>
+	<td colspan="10"><input type="submit" id="buttonc" value="Login" name="" ></div></td>
+</tr>
+<tr>
+<td></td><td>OR</td>
+</tr>
+<td></td>
+<td><a href="/fbapp/facebook">Create an Account</a></td>
+<br><br><span id="ebox1" style="color: red;font-size: 25px;"></span></table></fieldset></form>
+
+</body> 
+</html>

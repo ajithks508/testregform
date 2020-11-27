@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>page1</title>
+	<style type="text/css">
+		.new{
+			border-style: ridge;
+			border-color: #808080;
+			border-width: 5px;
+			width: 600px;
+			height: 500px;
+			margin-left: 350px;
+			margin-top: 30px;
+		}
+		#frst{
+			color: black;
+			padding-left:155px;
+		}
+		.name input{
+		    border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+			margin-left: 50px;
+		}
+		#age{
+			border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+			margin-left: 50px;
+		}
+		#gender_Female{
+			margin-left: 80px;
+		}
+		.mob input{
+			 border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+			margin-left: 50px;
+		}
+		.add input{
+			 border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+			margin-left: 50px;
+		}
+		.loca input{
+			 border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+			margin-left: 50px;
+		}
+		.usrps input{
+			 border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+			margin-left: 50px;
+		}
+		#buttonc{
+
+			background-color:#228B22;
+			color: white;font-weight: bold;
+			border-width: 0.1px;
+			border-color: grey;
+			width: 160px;
+			height: 40px;
+			border-style: ridge;
+			border-width: 2px;
+			border-radius: 5px;
+			margin-top: 25px;
+			margin-left: 200px;	
+		}
+		.text{
+		background-color:#778899;
+		width: 100%;
+		height: 100px;
+		color: black;
+	}
+	.tbl{
+		float: right;
+		margin-top: 30px;
+	}
+	
+
+	</style>
+	<script type="text/javascript">
+		function pas_check(){
+			var em1=document.getElementById('email').value;
+			var pas=document.getElementById('Password').value;
+			if(em1==''){
+				alert("enter your username")
+				return false;
+			}else if(pas==''){
+				alert("enter your Password")
+				return false;
+			}else{
+				alert("wait please........")
+			}
+		}
+		function tenant_check(){
+			var fname=document.getElementById('fn').value;
+			var lname=document.getElementById('sn').value;
+			var ag=document.getElementById('age').value;
+			var Female_checked=document.getElementById('gender_Female').checked;
+			var male_checked=document.getElementById('gender_male').checked;
+			var mob1=document.getElementById('m1').value;
+			var sel=document.getElementById('select');
+			var select=s.options[s.selectedIndex].value;
+			var addr=document.getElementById('add').value;
+			var cety=document.getElementById('cty').value;
+			var cntry=document.getElementById('county').value;
+			var loction=document.getElementById('loctn').value;
+			var usn=document.getElementById('me').value;
+			var psw=document.getElementById('np').value;
+			if(fname==''){
+				alert("enter the First name")
+				return false;
+			}else if(lname==''){
+				alert("enter the last name")
+				return false;
+			}else if(ag==''){
+				alert("enter your age")
+				return false;
+			}else if(Female_checked==false && male_checked==false){
+				alert("select your gender")
+				return false;
+			}else if(mob1==''){
+				alert("enter 1st mobile number")
+				return false;
+			}else if(sel=="0"){
+				alert("please select one")
+				return false;
+			}else if(addr==''){
+				alert("enter your address")
+				return false;
+			}else if(cety==''){
+				alert("enter your city")
+				return false;
+			}else if(cntry==''){
+				alert("enter your country")
+				return false;
+			}else if(loction==''){
+				alert("enter your location")
+				return false;
+			}else if(usn==''){
+				alert("enter your username")
+				return false;
+			}else if(psw==''){
+				alert("enter your Password")
+				return false;
+			}else{
+				alert("registration succesfull")
+			}
+
+		}
+	</script>
+</head>
+<body bgcolor="#DCDCDC">
+	<div>
+		 <div class="text">
+        	<form id="frm_login" name="frm_login" method="POST" action="/task/userLogin/" onsubmit="return pas_check()">
+        		{% csrf_token %}
+        		<table class="tbl">
+        			<tr><td>
+        				<select id="select"><option value="0">please select</option>
+					<option value="1" name="option" >Admin</option><option name="option" value="2">Staff</select>
+		 	<input type="text" name="txt_username" id="email" placeholder="username"></td>
+    		<td><input type="Password" name="txt_password" id="Password" placeholder="Password"></td>
+    		<td><input type="submit" name="log" value="login" id="logn"></td>
+    	</tr>
+    </table>
+    	</form>
+    	</div>
+		<div class="new">
+			<h1 id="frst">CREATE TENANT</h1>
+			<div class="name">
+				<form id="frm_login" name="frm_login" method="POST" action="/task/registration/" onsubmit="return tenant_check()">
+					{% csrf_token %}
+				<input type="text" placeholder="First name" id="fn" name="f_name">
+				<input type="text" placeholder="surname" id="sn" name="l_name">
+			</div>
+			<br>
+			<div class="radio">
+				<input type="text" name="age" placeholder="age" id="age">
+				<input type="radio" name="gender" value="Female" id="gender_Female">
+				<font size="3px">Female</font>
+				<input type="radio" name="gender" value="male" id="gender_male">
+				<font size="3px">Male</font>
+			</div><br>
+			<div class="mob">
+				<input type="text" name="mobile_1" placeholder="mobile number-1" id="m1">
+				<select id="select"><option value="0">please select</option>
+					<option value="1" name="option" >Admin</option><option name="option" value="2">Staff</select>
+			</div><br>
+			<div class="add">
+				<input type="text" name="address" placeholder="address" id="add">
+				<input type="text" name="city" placeholder="city" id="cty">			
+			</div><br>
+			<div class="loca">
+				<input type="text" name="country" placeholder="country" id="county">
+				<input type="text" name="location" placeholder="location" id="loctn">	
+			</div><br>
+			<div class="usrps">
+				<input type="text" placeholder="username" name="txt_username" id="me">
+				<input type="Password" placeholder="Password" id="np" name="txt_password">
+			</div>
+			<div><input type="submit" id="buttonc" value="Sign Up" name="" ></div>
+	</div>
+</div>
+
+</body>
+</html>

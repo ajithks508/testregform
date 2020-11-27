@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>homepage</title>
+	<style type="text/css">
+		.new{
+			border-style: ridge;
+			border-color: #808080;
+			border-width: 5px;
+			width: 600px;
+			height: 900px;
+			margin-left: 300px;
+			margin-top: 30px;
+			background-color: #AFEEEE;
+		}
+		#frst{
+			color: black;
+			padding-left:155px;
+		}
+		.name input{
+		    border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+		}
+		#age{
+			border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+		}
+		#g2{
+			border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+		}
+
+		.mob input{
+			 border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+		}
+		.add input{
+			 border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+		}
+		.loca input{
+			 border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+		}
+		.usrps input{
+			 border-radius: 2px;
+			height: 20px;
+			font-weight: bolder;
+			font-size: 10px;
+			padding: 10px;
+			width: 200px;
+			height: 10px;
+		}
+		#edit{
+
+			background-color:#228B22;
+			color: white;font-weight: bold;
+			border-width: 0.1px;
+			border-color: grey;
+			width: 160px;
+			height: 40px;
+			border-style: ridge;
+			border-width: 2px;
+			border-radius: 5px;
+			margin-top: 25px;
+			margin-left: 120px;	
+		}
+		#update{
+
+			background-color:#228B22;
+			color: white;font-weight: bold;
+			border-width: 0.1px;
+			border-color: grey;
+			width: 160px;
+			height: 40px;
+			border-style: ridge;
+			border-width: 2px;
+			border-radius: 5px;
+			margin-top: 25px;
+			margin-left: 120px;	
+		}
+		#delete{
+
+			background-color:#228B22;
+			color: white;font-weight: bold;
+			border-width: 0.1px;
+			border-color: grey;
+			width: 160px;
+			height: 40px;
+			border-style: ridge;
+			border-width: 2px;
+			border-radius: 5px;
+			margin-top: 25px;
+			margin-left: 120px;	
+		}
+		#fn{
+			margin-left: 85px;
+		}
+		#sn{
+			margin-left: 90px;
+		}
+		#age{
+			margin-left: 125px;
+		}
+		#g2{
+			margin-left:105px;
+		}
+		#m1{
+			margin-left: 40px;
+		}
+		#m2{
+			margin-left: 40px;
+		}
+		#add{
+			margin-left: 95px;
+		}
+		#cty{
+			margin-left: 120px;
+		}
+		#county{
+			margin-left: 95px;
+		}
+		#loctn{
+			margin-left: 90px;
+		}
+		#me{
+			margin-left: 80px;
+		}
+		#np{
+			margin-left: 80px;
+		}
+	</style>
+	  <script src="{% static 'script/jQuery-3-3-1.min.js' %}"></script>
+     <script >
+     $(document).ready(function(){
+      $("#edit").click(function(){
+        $("#fn").prop('readonly',false);
+          $("#sn").prop('readonly',false);
+            $("#age").prop('readonly',false);
+              $("#g2").prop('readonly',false);
+               $("#m1").prop('readonly',false);
+                $("#m2").prop('readonly',false);
+                 $("#add").prop('readonly',false);
+                  $("#cty").prop('readonly',false);
+                   $("#county").prop('readonly',false);
+                    $("#loctn").prop('readonly',false);
+      });
+      $("#update").hide();
+
+      $("#edit").click(function()
+      { 
+        $("#update").show();
+        $("#edit").hide();
+      });
+    });
+  </script>
+</head>
+<body bgcolor="#DCDCDC">
+	<div class="new">
+			<h1 id="frst">TENANT</h1>
+			<div class="name">
+				<form id="frm_login" name="frm_login" method="POST" action="/task/edittenant/">
+				{% csrf_token %}
+				 &nbsp;FirstName<input type="text" value="{{fname}}" id="fn" name="f_name" readonly="readonly"><br><br>
+				&nbsp;SurName<input type="text" value="{{lname}}" id="sn" name="l_name" readonly="readonly">
+			</div>
+			<br>
+			<div class="radio">
+				&nbsp;Age<input type="text" name="age" value="{{age}}" id="age" readonly="readonly"><br><br>
+				&nbsp;Gender<input type="text" name="gender"value="{{gender}}" readonly="readonly" id="g2"></input><br>
+			</div><br>
+			<div class="mob">
+				&nbsp;Mobile number1<input type="text" name="mobile_1" value="{{mobile1}}" id="m1" readonly="readonly"><br><br>
+				&nbsp;Mobile number2<input type="text" name="mobile_2" value="{{mobile2}}" id="m2" readonly="readonly">
+			</div><br>
+			<div class="add">
+				&nbsp;Address<input type="text" name="address" value="{{address}}" id="add" readonly="readonly"><br><br>
+				&nbsp;City<input type="text" name="city" value="{{city}}" id="cty" readonly="readonly">			
+			</div><br>
+			<div class="loca">
+				&nbsp;Country<input type="text" name="country" value="{{country}}" id="county" readonly="readonly"><br><br>
+				&nbsp;Location<input type="text" name="location" value="{{location}}" id="loctn" readonly="readonly">	
+			</div><br>
+			<div><input type="button"  value="EDIT" name="" id="edit" ></div>
+			<div><input type="submit"  value="UPDATE" name="" id="update" ></div>
+			<div><a href="/task/delete"><input type="button" id="delete" value="DELETE" name="" ></a></div>
+	</div>
+</div>
+
+</body>
+</html>
+
+</body>
+</html>

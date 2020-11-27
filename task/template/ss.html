@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function val_chk(){
+			var s=document.getElementById('select');
+			var select = s.options[s.selectedIndex].value;
+			alert("hiii")
+			if(select=="0"){
+				alert("error")
+				return false;
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<div>
+	<select id="select"><option value="0">please select</option>
+					<option value="Admin">Admin</option><option value="Staff">Staff
+					</option></select>
+						<div><input type="submit" id="buttonc" value="Sign Up" name="" onclick="val_chk()"></div>
+					</div>
+
+</body>
+</html>
